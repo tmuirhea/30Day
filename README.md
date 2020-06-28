@@ -1,2 +1,2 @@
-# 30Day
+# 30Days
 30 Day Challenge Repo
