@@ -19,6 +19,9 @@ class ChallengeList extends Component {
     onChallengeAdded = (challenge) => {
         console.log("Challenge Added");
         console.log(challenge);
+        this.setState(prevState => ({
+            challengeList: [...prevState.challengeList, challenge]
+        }));
     }
     onChallengeRecieved = (challengeList) => {
         console.log(challengeList);
@@ -27,7 +30,7 @@ class ChallengeList extends Component {
         }));
     }
     componentDidMount(){
-        getChallenge(onChallengeRecieved);
+        getChallenge(this.onChallengeRecieved);
     }
 }
 

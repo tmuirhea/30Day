@@ -6,7 +6,8 @@ export function addChallenge(Challenge, addchallengeComplete){
     .add({
         name: Challenge.name,
         description: Challenge.description,
-    }).then((data) => addchallengeComplete(data))
+    }).then((snapshot) => snapshot.get()
+    ).then((challengeData) => addchallengeComplete(challengeData.data()))
     .catch((error) => console.log(error));
 }
 
