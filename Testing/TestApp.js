@@ -1,13 +1,12 @@
 
 
-
-'use strict';
-import 'react-native-gesture-handler';
-import * as React from 'react';
-import { TouchableOpacity, StyleSheet, Button, View, Text, Image } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { Dimensions } from 'react-native';
+import { Button } from 'react-native';
+import { TouchableOpacity } from 'react-native';
+const {width, height} = Dimensions.get('window');
 /***  Firebase integration ***/
 import React, { Component } from 'react';
 import {addChallenge, getChallenge} from './30dayAPI';
@@ -35,105 +34,63 @@ class ChallengeList extends Component {
     }
 }
 
-function HomeScreen({ navigation }) {
+export default function App() {
   return (
-    <View style={styles.home_style}>
-      <Button
-        style ={styles.button_style}
-        title="+"
-        onPress={() => navigation.navigate('Challenges')}
-      />
-      <Text style={styles.text_style}>You have no new challenges, click the + button to add!</Text>
+    <View style={styles.container}>
+      <View style={styles.Title}>
+        <TouchableOpacity style={styles.selectButton}>
+          <Text style={styles.sb}> ≡ </Text>
+        </TouchableOpacity>
+        <Text style={styles.title}> 30 Days</Text>
+        <TouchableOpacity style={styles.plusButton}>
+          <Text style={styles.pb}> + </Text>
+        </TouchableOpacity>
+        </View>
+      <View style={styles.Yhnn}>
+        <Text style={styles.yhnn}> You have no new{"\n"} challenges,
+        click the +{"\n"} button to add</Text>
+      </View>
       <StatusBar style="auto" />
     </View>
   );
 }
 
-function LogoTitle() {
-  return (
-    <Image
-      style={{ width: 50, height: 50 }}
-      source={{uri: 'https://i.imgur.com/2ce7FJc.png'}}
-    />
-  );
-}
 
-function Settings(){
-  return (
-    <Image
-      style={{ width: 50, height: 50 }}
-      source={{uri: 'https://i.imgur.com/FHyTSws.png'}}
-    />
-  );
-}
-
-function ChallengesScreen() {
-  return (
-    <View style={styles.challenges_style}>
-      <Text>Challenge Screen Message hi hello :) </Text>
-    </View>
-  );
-}
-
-const Stack = createStackNavigator();
-
-function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen 
-          name="Home" 
-          component={HomeScreen} 
-          options={{ headerTitle: props => <LogoTitle {...props} /> }}
-          //options={{ title: '30days' }}
-        />
-        <Stack.Screen 
-          name="Challenges" 
-          component={ChallengesScreen} 
-          //options={{ title: '30Days' }}  
-        />  
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
 
 const styles = StyleSheet.create({
-  challenges_style:{
-    flex: 1, 
-    alignItems: 'center', 
-    justifyContent: 'center',
-  },
-  home_style: {
+  container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#fff',
+  },
+  Yhnn:{
     alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: width/2,
+
   },
-  text_style: {
-    color: "#20232a",
-    textAlign: "center",
-    fontSize: 35,
-    fontWeight: "bold"
+  yhnn:{
+    fontSize:22,
   },
-  button_style:{
-    color: "#A43D27", 
-  },
-  styles_lesson: {
-    color: '#F35F3F',
-    fontSize: 30,
+  Title:{
+    flexDirection:'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 16,
-    paddingVertical: 8,
-    borderWidth: 4,
-    borderColor: "#20232a",
-    borderRadius: 6,
-    backgroundColor: "#61dafb",
-    color: "#20232a",
-    textAlign: "center",
-    fontSize: 30,
-    fontWeight: "bold"
+    marginTop: 25,
+    marginLeft: 10,
+  },
+  title:{
+    fontSize:32,
+  },
+  fb:{
+    alignItems: 'center',
+    backgroundColor:'yellow',
+    marginHorizontal: 180,
+  },
+  pb:{
+    fontSize:32,
+  },
+  plusButton:{
+    marginLeft:width/2,
+  },
+  sb:{
+    fontSize:36,
   }
 });
-
-export default App;
