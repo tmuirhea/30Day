@@ -1,11 +1,15 @@
 import React from 'react';
 import firestore from '@react-native-firebase/firestore';
 import { List } from 'react-native-paper';
+//import {Checkmark} from 'react-checkmark';
 
-function Todo({ id, title, complete }) {
+
+function Todo({ id, Instructions, complete }) {
   async function toggleComplete() {
     await firestore()
-      .collection('todos')
+      .collection('Challenges')
+      .doc('Challenge1')
+      .collection('Days')
       .doc(id)
       .update({
         complete: !complete,
@@ -14,7 +18,7 @@ function Todo({ id, title, complete }) {
 
   return (
     <List.Item
-      title={title}
+      title={Instructions}
       onPress={() => toggleComplete()}
       left={props => (
         <List.Icon {...props} icon={complete ? 'check' : 'cancel'} />
