@@ -122,7 +122,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   },
 
-//Button style for challenges page ZJ 07/14
   button: {
       marginLeft: 24,
       backgroundColor: '#DCDCDC',
