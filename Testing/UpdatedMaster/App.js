@@ -14,6 +14,7 @@ import { useState } from "react";
 //import Challenges from './Todos';
 import Challenges from './Challenges';
 import DailyChallenges from './DailyChallenges';
+import DailyChallenges2 from './DailyChallenges2';
 
 //Implementing Dimensions ZJ 07/14
 const {width, height} = Dimensions.get('window');
@@ -54,141 +55,6 @@ function Settings(){
   );
 }
 
-//Implement challengesScreen ZJ 07/14
-function ChallengesScreen({ navigation }) {
-  const showAlert1 = () => {
-    Alert.alert(
-      'Successfully added!',
-      'Going to the challenge lists...',
-    [
-      {text: 'ok', onPress: () => navigation.navigate("todoPage")}  //import firebase and add activity here
-    ],
-    
-    )
-	}
-	const challengeAlert1 = () => {
-		Alert.alert(
-			'Improve your writing skills',
-			'Introduction to this challenge',     //import firebase and substitute introductions here?
-			[
-			  {text: 'yes', onPress: () => showAlert1()}, 
-				{text: 'no', styles: 'cancel'},
-			],
-			{cancelable: false}
-		)
-  }
-
-  const challengeAlert2 = () => {
-		Alert.alert(
-			'Practice midfulness techniques',
-			'Introduction to this challenge',
-			[
-			  {text: 'yes', onPress: () => showAlert1()}, 
-				{text: 'no', styles: 'cancel'},
-			],
-			{cancelable: false}
-		)
-  }
-  
-	const challengeAlert3 = () => {
-		Alert.alert(
-			'Learn 30 new chess strategies',
-			'The art of chess strategy is knowing how to formulate a plan for the chess game, and arrange your chess pieces to accomplish this plan.',
-			[
-			  {text: 'yes', onPress: () => showAlert1()}, 
-				{text: 'no', styles: 'cancel'},
-			],
-			{cancelable: false}
-		)
-  }
-
-  const challengeAlert4 = () => {
-		Alert.alert(
-			'Code an app from scratch',
-			'Introduction to this challenge',
-			[
-			  {text: 'yes', onPress: () => showAlert1()}, 
-				{text: 'no', styles: 'cancel'},
-			],
-			{cancelable: false}
-		)
-  }
-  const challengeAlert5 = () => {
-		Alert.alert(
-			'Learn basic day trading',
-			'Introduction to this challenge',
-			[
-			    {text: 'yes', onPress: () => showAlert1()}, 
-				{text: 'no', styles: 'cancel'},
-			],
-			{cancelable: false}
-		)
-  }
-  const challengeAlert6 = () => {
-		Alert.alert(
-			'Build better daily health habits',
-			'Introduction to this challenge',
-			[
-			    {text: 'yes', onPress: () => showAlert1()}, 
-				{text: 'no', styles: 'cancel'},
-			],
-			{cancelable: false}
-		)
-  }
-  const challengeAlert7 = () => {
-		Alert.alert(
-			'Create a UI/UX portfolio',
-			'Introduction to this challenge',
-			[
-			    {text: 'yes', onPress: () => showAlert1()}, 
-				{text: 'no', styles: 'cancel'},
-			],
-			{cancelable: false}
-		)
-  }
-  const challengeAlert8 = () => {
-		Alert.alert(
-			'The name of this challenge',
-			'The overall introduction to this challenge',
-			[
-			  {text: 'yes', onPress: () => showAlert1()}, 
-				{text: 'no', styles: 'cancel'},
-			],
-			{cancelable: false}
-		)
-  }
-  return (
-	
-	<ScrollView style={{AlignItems:"center"}}>
-	    <TouchableOpacity onPress = {challengeAlert1} style = {styles.button}>
-		    <Text>Improve your writing skills</Text> 
-		</TouchableOpacity>
-		<TouchableOpacity onPress = {challengeAlert2} style = {styles.button}>
-		    <Text>Practice midfulness techniques</Text>
-		</TouchableOpacity>
-		<TouchableOpacity onPress = {challengeAlert3} style = {styles.button}>
-		    <Text>Learn 30 new chess strategies</Text>
-		</TouchableOpacity>
-		<TouchableOpacity onPress = {challengeAlert4} style = {styles.button}>
-		    <Text>Code an app from scratch</Text>
-		</TouchableOpacity>
-		<TouchableOpacity onPress = {challengeAlert5} style = {styles.button}>
-		    <Text>Learn basic day trading</Text>
-		</TouchableOpacity>
-		<TouchableOpacity onPress = {challengeAlert6} style = {styles.button}>
-		    <Text>Build better daily health habits</Text>
-		</TouchableOpacity>
-		<TouchableOpacity onPress = {challengeAlert7} style = {styles.button}>
-		    <Text>Create a UI/UX portfolio</Text>
-		</TouchableOpacity>
-		<TouchableOpacity onPress = {challengeAlert8} style = {styles.button}>
-		    <Text>Challenge 8</Text>
-		</TouchableOpacity>
-		
-		</ScrollView>
-  );
-}
-
 const Stack = createStackNavigator();
 
 function App() {
@@ -219,6 +85,10 @@ function App() {
         <Stack.Screen
           name="todoPage"
           component={DailyChallenges}
+        />
+        <Stack.Screen
+          name="todoPage2"
+          component={DailyChallenges2}
         />
         
       </Stack.Navigator>

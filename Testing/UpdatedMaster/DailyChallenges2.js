@@ -11,7 +11,7 @@ function DailyChallenges() {
     const [ challenges, setChallenges ] = useState([]);
     const [ challengeDetails, setchallengeDetails ] = useState([]);
     const ref = firestore().collection('Challenges');
-    const db = ref.doc('Challenge2');
+    const db = ref.doc('Challenge1');
     const dailyChallenges = db.collection('Days');
     async function addChallenge() {
         await dailyChallenges.add({

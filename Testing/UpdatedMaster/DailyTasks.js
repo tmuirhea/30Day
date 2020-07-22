@@ -23,7 +23,6 @@ function DailyTasks({ id, Day, Instructions, complete }) {
 
   return (
     <List.Item
-    
       title={Day}
       description = {Instructions}
       onPress={() => toggleComplete()}
