@@ -24,10 +24,11 @@ function DailyChallenges() {
         return dailyChallenges.onSnapshot(querySnapshot => {
             const list = [];
             querySnapshot.forEach(doc => {
-            const { Instructions, complete } = doc.data();
+            const { Instructions, complete, Day } = doc.data();
             list.push({
                 id: doc.id,
                 Instructions,
+                Day,
                 complete,
             });
             });
