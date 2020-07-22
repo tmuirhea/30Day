@@ -45,7 +45,7 @@ function DailyChallenges() {
     return (
         <>
         <Appbar>
-            <Appbar.Content title={'Challenge List'} />
+            <Appbar.Content title={'Firebase Learning Tasks'} />
         </Appbar>
         <FlatList 
             style={{flex: 1}}
