@@ -2,26 +2,20 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
 
-//adding "Dimensions", "Alert, ScrollView". Zijun 07/14
 import { Dimensions, TouchableOpacity, StyleSheet, Button, View, Text, Image, Alert, ScrollView} from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-//import { StatusBar } from 'expo-status-bar';
 import { CheckBox } from 'react-native';
 import { useState } from "react";
-//import React, { Component } from 'react';
-//import Challenges from './Todos';
-import Challenges from './Challenges';
-import DailyChallenges from './DailyChallenges';
+import Challenges from './Challenges';                                 //import Challenge Page from Challenges.js
+import DailyChallenges from './DailyChallenges';                       //import specific tasks for each Challenge from DailyChallenges
 import DailyChallenges2 from './DailyChallenges2';
 
-//Implementing Dimensions ZJ 07/14
 const {width, height} = Dimensions.get('window');
 
 function HomeScreen({ navigation }) {
-  //const jumptoch = () => navigation.navigate('Challenges');
-  const jumptoch = () => navigation.navigate('Challenges');
+  const jumptoch = () => navigation.navigate('Challenges');            //navigate to the Challenge Page
   return (
     <View style={styles.home_style}>
       <TouchableOpacity onPress={jumptoch}>
@@ -65,22 +59,15 @@ function App() {
           name="30Days"
           component={HomeScreen}
           options={{headerTitleStyle: {alignSelf: 'center'}}}
-          //options={{ headerTitle: props => <Settings {...props} /> }}
-
         />
         <Stack.Screen
           name="Challenges"
           component={Challenges}
-
-          //change the title color ZJ 07/14
           options={{
             headerStyle: {
               backgroundColor: '#FA8072'
-            }
-            
+            }  
           }}
-
-          //options={{ title: '30Days' }}
         />
         <Stack.Screen
           name="todoPage"
