@@ -7,7 +7,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 //import DailyChallenges from './DailyChallenges';
 //import {Checkmark} from 'react-checkmark';
 
-
+//Takes in the id, title of the challenge, and also contains a dummy variable onPress to be used for future releases (will forward the onPress request) 
+//this will navigate to the desired challenge list
 function ChallengeList({ id, Description, onPress }) {
   const navigation = useNavigation();
   var name = "";
