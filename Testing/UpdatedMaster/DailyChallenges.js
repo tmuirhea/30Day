@@ -24,10 +24,11 @@ function DailyChallenges() {
         return dailyChallenges.onSnapshot(querySnapshot => {
             const list = [];
             querySnapshot.forEach(doc => {
-            const { Instructions, complete } = doc.data();
+            const { Instructions, complete, Day } = doc.data();
             list.push({
                 id: doc.id,
                 Instructions,
+                Day,
                 complete,
             });
             });
@@ -50,7 +51,7 @@ function DailyChallenges() {
             style={{flex: 1}}
             data={challenges}
             keyExtractor={(item) => item.id}
-            renderItem={({ item }) => <Todo {...item} />}
+            renderItem={({ item }) => <DailyTasks {...item} />}
         />
         <TextInput label={'New Challenge'} value={challenge} onChangeText={setChallenge} />
         <Button onPress={() => addChallenge()}>Add Challenge (Daily)</Button>

@@ -7,7 +7,7 @@ import { CheckBox } from 'react-native';
 import { useState } from "react";
 
 
-function DailyTasks({ id, Instructions, complete }) {
+function DailyTasks({ id, Day, Instructions, complete }) {
   const [isSelected, setSelection] = useState(complete);
   async function toggleComplete() {
     setSelection(!complete)          //update check mark on the checkbox
@@ -23,7 +23,9 @@ function DailyTasks({ id, Instructions, complete }) {
 
   return (
     <List.Item
-      title={Instructions}
+    
+      title={Day}
+      description = {Instructions}
       onPress={() => toggleComplete()}
       left={props => (
       //<List.Icon {...props} icon={complete ? 'check' : 'cancel'} />
