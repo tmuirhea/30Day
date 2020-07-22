@@ -6,7 +6,7 @@ import { TouchableOpacity, StyleSheet, Button, View, Text, Image } from 'react-n
 import { CheckBox } from 'react-native';
 import { useState } from "react";
 
-
+//This function will update the data inside of the 'Days' collection depending if the task was completed 
 function DailyTasks({ id, Day, Instructions, complete }) {
   const [isSelected, setSelection] = useState(complete);
   async function toggleComplete() {
@@ -20,7 +20,7 @@ function DailyTasks({ id, Day, Instructions, complete }) {
         complete: !complete,
       });
   }
-
+ //Will return a list of items and checkboxs which contain the day of the challenge and the details 
   return (
     <List.Item
       title={Day}
