@@ -4,7 +4,7 @@ import { FlatList, View, Text} from 'react-native';
 import DailyTasks from './DailyTasks';
 import firestore from '@react-native-firebase/firestore';
 import { Appbar, Button, TextInput, List } from 'react-native-paper';
-
+//This file will grab the list of tasks needed for the specific challenge, this has a similar structure to the Challenges function but instead returns the nested doc's inside the 'Days' collection
 function DailyChallenges() {
     const [ challenge, setChallenge ] = useState('');
     const [ loading, setLoading ] = useState(true);

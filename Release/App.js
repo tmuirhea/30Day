@@ -1,34 +1,27 @@
 'use strict';
 import 'react-native-gesture-handler';
 import * as React from 'react';
-
-//adding "Dimensions", "Alert, ScrollView". Zijun 07/14
 import { Dimensions, TouchableOpacity, StyleSheet, Button, View, Text, Image, Alert, ScrollView} from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-//import { StatusBar } from 'expo-status-bar';
 import { CheckBox } from 'react-native';
 import { useState } from "react";
-//import React, { Component } from 'react';
-//import Challenges from './Todos';
-import Challenges from './Challenges';
-import DailyChallenges from './DailyChallenges';
+import Challenges from './Challenges';                                 //import Challenge Page from Challenges.js
+import DailyChallenges from './DailyChallenges';                       //import specific tasks for each Challenge from DailyChallenges
 import DailyChallenges2 from './DailyChallenges2';
 
-//Implementing Dimensions ZJ 07/14
 const {width, height} = Dimensions.get('window');
 
 function HomeScreen({ navigation }) {
-  //const jumptoch = () => navigation.navigate('Challenges');
-  const jumptoch = () => navigation.navigate('Challenges');
+  const jumptoch = () => navigation.navigate('Challenges');            //navigate to the Challenge Page
   return (
     <View style={styles.home_style}>
       <TouchableOpacity onPress={jumptoch}>
         <View>
           <Image
             style={{ width: 50, height: 50 }}
-            source={{uri: 'https://i.imgur.com/2ce7FJc.png'}}
+            source={{uri: 'https://i.imgur.com/2ce7FJc.png'}}          //the "plus" button, which is a picture
           />
         </View>
       </TouchableOpacity>
@@ -55,38 +48,31 @@ function Settings(){
   );
 }
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator();                                        //create a stack of screens
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Home">                              //home page screen
         <Stack.Screen
           name="30Days"
           component={HomeScreen}
           options={{headerTitleStyle: {alignSelf: 'center'}}}
-          //options={{ headerTitle: props => <Settings {...props} /> }}
-
         />
-        <Stack.Screen
+        <Stack.Screen                                                        //Challenge List screen
           name="Challenges"
           component={Challenges}
-
-          //change the title color ZJ 07/14
           options={{
             headerStyle: {
               backgroundColor: '#FA8072'
             }
-            
           }}
-
-          //options={{ title: '30Days' }}
         />
-        <Stack.Screen
+        <Stack.Screen                                                       //tasks for the first challenge 
           name="todoPage"
           component={DailyChallenges}
         />
-        <Stack.Screen
+        <Stack.Screen                                                       //tasks for the second challenge
           name="todoPage2"
           component={DailyChallenges2}
         />
