@@ -58,8 +58,11 @@ apply plugin: 'com.google.gms.google-services' // <- Add this line
 
 Do that by using this site: https://rnfirebase.io/enabling-multidex
 
-8. Now it will be necessary to install the dependencies used for style and functional components using npm or yarn. 
-
+8. Now it will be necessary to install the dependencies used for style and functional components using npm or yarn as follows:
+```
+npm install @react-navigation/native
+npm install @react-navigation/stack
+npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
 ```
 
 

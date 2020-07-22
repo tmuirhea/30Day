@@ -4,7 +4,7 @@ import { FlatList, View, Text} from 'react-native';
 import DailyTasks from './DailyTasks';
 import firestore from '@react-native-firebase/firestore';
 import { Appbar, Button, TextInput, List } from 'react-native-paper';
-
+//Used with communicating with Firebase 
 function DailyChallenges() {
     const [ challenge, setChallenge ] = useState('');
     const [ loading, setLoading ] = useState(true);
