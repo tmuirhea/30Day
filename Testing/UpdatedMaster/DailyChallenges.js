@@ -50,7 +50,7 @@ function DailyChallenges() {
             style={{flex: 1}}
             data={challenges}
             keyExtractor={(item) => item.id}
-            renderItem={({ item }) => <Todo {...item} />}
+            renderItem={({ item }) => <DailyTasks {...item} />}
         />
         <TextInput label={'New Challenge'} value={challenge} onChangeText={setChallenge} />
         <Button onPress={() => addChallenge()}>Add Challenge (Daily)</Button>

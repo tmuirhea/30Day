@@ -2,14 +2,17 @@ import React from 'react';
 import {TouchableOpacity, StyleSheet, Text, View} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 import { List } from 'react-native-paper';
+import { useNavigation } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+//import DailyChallenges from './DailyChallenges';
 //import {Checkmark} from 'react-checkmark';
 
 
 function ChallengeList({ id, Description, onPress }) {
-  
+  const navigation = useNavigation();
 
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={() => navigation.navigate("todoPage")}>
         <View style = {styles.button}>
             <Text style ={styles.buttonText}>{Description}</Text>
         </View>
