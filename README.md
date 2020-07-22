@@ -16,19 +16,53 @@ Install Firebase, React Native,
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+Installation Guide for 30day Application for Android
 
-Say what the step will be
+For MacOS installation
+1. First you must install the react native framework using this install guide: 
+https://reactnative.dev/docs/environment-setup#:~:text=and%20Android%20Studio.-,Installing%20dependencies,React%20Native%20app%20for%20Android.
+
+2. Then you must setup your react native firebase connection from here: https://console.firebase.google.com/u/0/
+
+3. Next you will call 
 
 ```
-Give the example
+yarn add @react-native-firebase/app
 ```
 
-And repeat
+4. On the Firebase console, add a new Android application and enter your projects details. The "Android package name" must match your local projects package name which can be found inside of the manifest tag within the /android/app/src/main/AndroidManifest.xml file within your project.
+
+5. Download the google-services.json file and place it inside of your project at the following location: /android/app/google-services.json.
+
+6. To allow Firebase on Android to use the credentials, the google-services plugin must be enabled on the project. This requires modification to two files in the Android directory.
+
+First, add the google-services plugin as a dependency inside of your /android/build.gradle file:
 
 ```
-until finished
+buildscript {
+  dependencies {
+    // ... other dependencies
+    classpath 'com.google.gms:google-services:4.2.0'
+    // Add me --- /\
+  }
+}
 ```
+Lastly, execute the plugin by adding the following to your /android/app/build.gradle file:
+
+```
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services' // <- Add this line
+```
+
+7. Since this program contains many dependencies, you will also need to enable multidexing. 
+
+Do that by using this site: https://rnfirebase.io/enabling-multidex
+
+8. Now it will be necessary to install the dependencies used for style and functional components using npm or yarn. 
+
+```
+
+
 
 
 
