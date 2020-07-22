@@ -10,16 +10,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 function ChallengeList({ id, Description, onPress }) {
   const navigation = useNavigation();
-  var name = "";
-  if (Description.localeCompare("Learn to use Firebase")) {
-    name = "todoPage";
-  }
-  else {
-    name = "todoPage2";
-  }
 
   return (
-    <TouchableOpacity onPress={() => navigation.navigate(name)}>
+    <TouchableOpacity onPress={() => navigation.navigate("todoPage")}>
         <View style = {styles.button}>
             <Text style ={styles.buttonText}>{Description}</Text>
         </View>
@@ -48,7 +41,6 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
         fontSize: 16,
         textAlign: 'center',
-
     }
 })
 
