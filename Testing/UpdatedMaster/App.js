@@ -22,7 +22,7 @@ function HomeScreen({ navigation }) {
         <View>
           <Image
             style={{ width: 50, height: 50 }}
-            source={{uri: 'https://i.imgur.com/2ce7FJc.png'}}
+            source={{uri: 'https://i.imgur.com/2ce7FJc.png'}}         //the "plus" button, which is a picture
           />
         </View>
       </TouchableOpacity>
@@ -49,18 +49,18 @@ function Settings(){
   );
 }
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator();                        //create a stack of screens
 
 function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer>                                    //home page screen
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="30Days"
           component={HomeScreen}
           options={{headerTitleStyle: {alignSelf: 'center'}}}
         />
-        <Stack.Screen
+        <Stack.Screen                                       //Challenge List screen
           name="Challenges"
           component={Challenges}
           options={{
@@ -69,12 +69,12 @@ function App() {
             }  
           }}
         />
-        <Stack.Screen
+        <Stack.Screen                                      //tasks for the first challenge
           name="todoPage"
           component={DailyChallenges}
         />
         <Stack.Screen
-          name="todoPage2"
+          name="todoPage2"                                 //tasks for the second challenge
           component={DailyChallenges2}
         />
         
