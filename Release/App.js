@@ -1,0 +1,152 @@
+'use strict';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+
+//adding "Dimensions", "Alert, ScrollView". Zijun 07/14
+import { Dimensions, TouchableOpacity, StyleSheet, Button, View, Text, Image, Alert, ScrollView} from 'react-native';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+//import { StatusBar } from 'expo-status-bar';
+import { CheckBox } from 'react-native';
+import { useState } from "react";
+//import React, { Component } from 'react';
+//import Challenges from './Todos';
+import Challenges from './Challenges';
+import DailyChallenges from './DailyChallenges';
+import DailyChallenges2 from './DailyChallenges2';
+
+//Implementing Dimensions ZJ 07/14
+const {width, height} = Dimensions.get('window');
+
+function HomeScreen({ navigation }) {
+  //const jumptoch = () => navigation.navigate('Challenges');
+  const jumptoch = () => navigation.navigate('Challenges');
+  return (
+    <View style={styles.home_style}>
+      <TouchableOpacity onPress={jumptoch}>
+        <View>
+          <Image
+            style={{ width: 50, height: 50 }}
+            source={{uri: 'https://i.imgur.com/2ce7FJc.png'}}
+          />
+        </View>
+      </TouchableOpacity>
+      <Text style={styles.text_style}>You have no new challenges, click the + button to add!</Text>
+    </View>
+  );
+}
+
+function LogoTitle() {
+  return (
+    <Image
+      style={{ width: 50, height: 50 }}
+      source={{uri: 'https://i.imgur.com/2ce7FJc.png'}}
+    />
+  );
+}
+
+function Settings(){
+  return (
+    <Image
+      style={{ width: 50, height: 50 }}
+      source={{uri: 'https://i.imgur.com/FHyTSws.png'}}
+    />
+  );
+}
+
+const Stack = createStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="30Days"
+          component={HomeScreen}
+          options={{headerTitleStyle: {alignSelf: 'center'}}}
+          //options={{ headerTitle: props => <Settings {...props} /> }}
+
+        />
+        <Stack.Screen
+          name="Challenges"
+          component={Challenges}
+
+          //change the title color ZJ 07/14
+          options={{
+            headerStyle: {
+              backgroundColor: '#FA8072'
+            }
+            
+          }}
+
+          //options={{ title: '30Days' }}
+        />
+        <Stack.Screen
+          name="todoPage"
+          component={DailyChallenges}
+        />
+        <Stack.Screen
+          name="todoPage2"
+          component={DailyChallenges2}
+        />
+        
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+const styles = StyleSheet.create({
+  challenges_style:{
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  home_style: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  text_style: {
+    color: "#20232a",
+    textAlign: "center",
+    fontSize: 35,
+    fontWeight: "bold"
+  },
+  button_style:{
+    color: "#A43D27",
+  },
+  styles_lesson: {
+    color: '#F35F3F',
+    fontSize: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 16,
+    paddingVertical: 8,
+    borderWidth: 4,
+    borderColor: "#20232a",
+    borderRadius: 6,
+    backgroundColor: "#61dafb",
+    color: "#20232a",
+    textAlign: "center",
+    fontSize: 30,
+    fontWeight: "bold"
+  },
+
+//Button style for challenges page ZJ 07/14
+  button: {
+      marginLeft: 24,
+      backgroundColor: '#DCDCDC',
+      width: 370,
+      height: 50,
+      borderRadius: 20,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 30,
+    }
+    
+});
+
+export default App;
