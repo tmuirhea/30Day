@@ -1,4 +1,4 @@
-# 30days - CSE 115 Project 
+# 30days 
 
 30days is an Android app for individuals want to learn new skills, but have a hard time keeping up with their goals over time. We saw an opportunity to help users build better habits sustainably, with 30 days of fun tasks based on a set goal. 
 
